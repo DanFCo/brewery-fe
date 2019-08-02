@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Brewery from './Brewery'
+import BreweryDetails from './BreweryDetails'
 
 
 class App extends React.Component {
@@ -8,7 +9,7 @@ class App extends React.Component {
 state={
   breweries: [],
   selectedBrewery: {},
-  page: 1
+  page: false
 }
 
   componentDidMount(){
@@ -19,11 +20,23 @@ state={
        breweries: data
      })
     })
-    let jimmy = process.env.API_KEY
-    console.log(jimmy)
   }
 
 
+  breweryHandler = (brewery) =>{
+    this.setState({
+      selectedBrewery: brewery
+    })
+
+    this.pageHandler()
+  }
+
+
+  pageHandler = () =>{
+    this.setState(prevState => ({
+      page: !prevState.page
+    }))
+  }
 
 
 
@@ -33,9 +46,13 @@ state={
   render(){
     return(
       <div>
-        {this.state.breweries.map(brewery =>{
-          return <Brewery key={brewery.id} data={brewery} />
-        })}
+        {this.state.page === true ?
+          <BreweryDetails brewery={this.state.selectedBrewery} pageHandler={this.pageHandler} />
+          :
+          this.state.breweries.map(brewery =>{
+            return <Brewery key={brewery.id} data={brewery} breweryHandler={this.breweryHandler} />
+          })
+        }
       </div>
   );
 }
