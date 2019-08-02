@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon, Segment, Header, Divider } from 'semantic-ui-react'
+import { Button, Icon, Segment, Header, Divider, Popup } from 'semantic-ui-react'
 
 
 
@@ -11,9 +11,9 @@ class Brewery extends React.Component {
 
   render() {
     return (
-      <div>
-        <Segment raised>
-          <Header as='h1' floated='left'>
+      <div className="breweries">
+        <Segment textAlign="center" raised>
+          <Header as='h1' textAlign='center'>
             {this.props.data.name}
           </Header>
           <Divider clearing />
@@ -30,13 +30,14 @@ class Brewery extends React.Component {
             Zipcode: {this.props.data.postal_code}
           <br/>
           {this.props.data.website_url.length === 0 ? <h5>No Website Available</h5> :
-            <a href={this.props.data.website_url} target="blank">
-              <Button color="blue" icon>
+
+            <Popup content={this.props.data.website_url} trigger={<a href={this.props.data.website_url} target="blank">
+             <Button color="blue" icon>
                 <Icon name="world"/> Website
               </Button>
-              </a>
+              </a>} />
             }
-              <Button onClick={() => this.props.breweryHandler(this.props.data)} color="orange" icon>
+              <Button onClick={() => this.props.breweryHandler(this.props.data)} color="black" icon>
                 <Icon name="beer"/> Details
               </Button>
       </Segment>

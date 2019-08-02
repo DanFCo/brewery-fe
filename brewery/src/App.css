@@ -19,6 +19,11 @@
   color: white;
 }
 
+
+.subject {
+  color: red;
+}
+
 .App-link {
   color: #61dafb;
 }
