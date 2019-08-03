@@ -12,37 +12,37 @@ class Brewery extends React.Component {
   render() {
     return (
       <Responsive>
-      <div className="breweries">
-        <Segment textAlign="center" raised>
-          <Header as='h1' textAlign='center'>
-            {this.props.data.name}
-          </Header>
-          <Divider clearing />
+        <div className="breweries">
+          <Segment textAlign="center" raised>
+            <Header as='h1' textAlign='center'>
+              {this.props.data.name}
+            </Header>
+            <Divider clearing />
             <font size='4'>
               Brewery Type:  <i>{this.props.data.brewery_type}</i>
             </font>
-          <br/>
+            <br/>
             Street: {this.props.data.street}
-          <br/>
+            <br/>
             City: {this.props.data.city}
-          <br/>
+            <br/>
             State: {this.props.data.state}
-          <br/>
+            <br/>
             Zipcode: {this.props.data.postal_code}
-          <br/>
-          {this.props.data.website_url.length === 0 ? <h5>No Website Available</h5> :
+            <br/>
+            {this.props.data.website_url.length === 0 ? <h5>No Website Available</h5> :
 
-            <Popup content={this.props.data.website_url} trigger={<a href={this.props.data.website_url} target="blank">
-             <Button color="blue" icon>
-                <Icon name="world"/> Website
-              </Button>
+              <Popup content={this.props.data.website_url} trigger={<a href={this.props.data.website_url} target="blank">
+                <Button color="blue" icon>
+                  <Icon name="world"/> Website
+                </Button>
               </a>} />
             }
-              <Button onClick={() => this.props.breweryHandler(this.props.data)} color="black" icon>
-                <Icon name="beer"/> Details
-              </Button>
-      </Segment>
-      </div>
+            <Button onClick={() => this.props.breweryHandler(this.props.data)} color="black" icon>
+              <Icon name="beer"/> Details
+            </Button>
+          </Segment>
+        </div>
       </Responsive>
     );
   }

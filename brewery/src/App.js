@@ -7,19 +7,19 @@ import BreweryDetails from './BreweryDetails'
 
 class App extends React.Component {
 
-state={
-  breweries: [],
-  selectedBrewery: {},
-  page: false,
-}
+  state={
+    breweries: [],
+    selectedBrewery: {},
+    page: false,
+  }
 
   componentDidMount(){
     fetch("https://api.openbrewerydb.org/breweries?by_city=Denver&per_page=50")
     .then(response => response.json())
     .then(data =>{
-     this.setState({
-       breweries: data
-     })
+      this.setState({
+        breweries: data
+      })
     })
   }
 
@@ -39,13 +39,8 @@ state={
     }))
   }
 
-
-
-
-
-
+  
   render(){
-    console.log(this.style)
     return(
       <div>
         {this.state.page === true ?
@@ -57,8 +52,8 @@ state={
         }
 
       </div>
-  );
-}
+    );
+  }
 }//-------end of component------------
 
 export default App
