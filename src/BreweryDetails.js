@@ -9,7 +9,7 @@ import GoogleApi from './GoogleApi'
 class BreweryDetails extends React.Component {
 
   render() {
-  
+
     return (
       <Responsive>
         <div>
@@ -53,8 +53,6 @@ class BreweryDetails extends React.Component {
         <h3>No Map Available</h3>
 
         :
-
-
 
         <GoogleApi {...this.props.brewery} />
 
