@@ -1,7 +1,8 @@
-import React from 'react';
+import React from 'react'
 import './App.css';
 import Brewery from './Brewery'
 import BreweryDetails from './BreweryDetails'
+
 
 
 class App extends React.Component {
@@ -9,7 +10,7 @@ class App extends React.Component {
 state={
   breweries: [],
   selectedBrewery: {},
-  page: false
+  page: false,
 }
 
   componentDidMount(){
@@ -44,6 +45,7 @@ state={
 
 
   render(){
+    console.log(this.style)
     return(
       <div>
         {this.state.page === true ?
@@ -53,9 +55,10 @@ state={
             return <Brewery key={brewery.id} data={brewery} breweryHandler={this.breweryHandler} />
           })
         }
+
       </div>
   );
 }
 }//-------end of component------------
 
-export default App;
+export default App

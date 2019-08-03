@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Icon, Container, Divider, Responsive } from 'semantic-ui-react'
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
+import GoogleApi from './GoogleApi'
+
 
 
 
@@ -17,27 +18,35 @@ class BreweryDetails extends React.Component {
         <b>{this.props.brewery.name}</b>
       </font>
         <Divider/>
-        <Divider>
-
-<GoogleApiWrapper>
 
 
-</GoogleApiWrapper>
-
-
-
-
-
-
-
-        </Divider>
         <font size='5'>
         <b><u>Location</u></b>
         <br/>
         <br/>
         </font>
-        <font size="4">
 
+        <br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <Divider/>
+
+<font size="4">
         <b className="subject">Street:</b> {this.props.brewery.street}
         <br/>
         <b className="subject">City:</b> {this.props.brewery.city}
@@ -56,11 +65,26 @@ class BreweryDetails extends React.Component {
         </Button>
         </Container>
 
+
+
+
+
+
+
+
       </div>
+      <Container textAlign="center">
+
+      <GoogleApi {...this.props.brewery} />
+
+
+      </Container>
       </Responsive>
     );
   }
 
 }
 
-export default BreweryDetails ;
+
+
+export default BreweryDetails
