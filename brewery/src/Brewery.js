@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon, Segment, Header, Divider, Popup } from 'semantic-ui-react'
+import { Button, Icon, Segment, Header, Divider, Popup, Responsive } from 'semantic-ui-react'
 
 
 
@@ -11,6 +11,7 @@ class Brewery extends React.Component {
 
   render() {
     return (
+      <Responsive>
       <div className="breweries">
         <Segment textAlign="center" raised>
           <Header as='h1' textAlign='center'>
@@ -42,6 +43,7 @@ class Brewery extends React.Component {
               </Button>
       </Segment>
       </div>
+      </Responsive>
     );
   }
 

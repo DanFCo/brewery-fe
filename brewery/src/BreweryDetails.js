@@ -1,5 +1,7 @@
 import React from 'react'
-import { Button, Icon, Container, Divider } from 'semantic-ui-react'
+import { Button, Icon, Container, Divider, Responsive } from 'semantic-ui-react'
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
+
 
 
 
@@ -7,14 +9,28 @@ class BreweryDetails extends React.Component {
 
   render() {
     return (
+<Responsive>
       <div>
-
       <Container textAlign="center">
       <br/>
       <font size="8">
         <b>{this.props.brewery.name}</b>
       </font>
         <Divider/>
+        <Divider>
+
+<GoogleApiWrapper>
+
+
+</GoogleApiWrapper>
+
+
+
+
+
+
+
+        </Divider>
         <font size='5'>
         <b><u>Location</u></b>
         <br/>
@@ -39,7 +55,9 @@ class BreweryDetails extends React.Component {
         <Icon name="list"/>   Back To Breweries
         </Button>
         </Container>
+
       </div>
+      </Responsive>
     );
   }
 
