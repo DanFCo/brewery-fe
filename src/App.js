@@ -39,11 +39,11 @@ class App extends React.Component {
     }))
   }
 
-  
+
   render(){
     return(
       <div>
-        {this.state.page === true ?
+        {this.state.page ?
           <BreweryDetails brewery={this.state.selectedBrewery} pageHandler={this.pageHandler} />
           :
           this.state.breweries.map(brewery =>{
